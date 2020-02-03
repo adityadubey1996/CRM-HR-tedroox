@@ -77,6 +77,10 @@ const Hrschema = new mongoose.Schema({
         required : [true, 'enter a phone number']
     },
 
+    employee_id:{
+        type:String
+    },
+
     tokens:[{
         token:{
             type:String,
@@ -96,13 +100,14 @@ Hrschema.methods.generateauthtoken = async function (){
 }
 
 Hrschema.statics.findByCredentials = async (email,password) =>{
-    console.log(email)
-    const user = await Hr.findOne({'email':email})
-    console.log('from_findmycredentials')
     
+    const user = await Hr.findOne({'email':email})
+    
+    
+    console.log(user)
     console.log(user.password)
     console.log(password)
-    console.log(bcrypt.compareSync(password, user.password))
+    // console.log(bcrypt.compareSync(password, user.password))
     if(!user){
         res.status(404).send()
         throw new Error('unable to login')
@@ -111,13 +116,11 @@ Hrschema.statics.findByCredentials = async (email,password) =>{
     const isMatch = await bcrypt.compare(password, user.password)
     console.log(isMatch)
     if(!isMatch){
-        //return({user, isMatch})
-        
         throw new Error('password does not match')
-        
     }
     return user
-
+    
+   
     
 }
 
@@ -125,20 +128,16 @@ Hrschema.pre('save', async function(next){
    console.log('middleware')
    const user = this
    const password = user.password
-   console.log(user.password)
-   console.log(password)
-   user.password = await bcrypt.hash(user.password, 8)
-   const compare = await bcrypt.compare(password, user.password)
-   console.log(compare)
-   console.log(user.password)
+  
+   if (user.isModified('password')){
+    user.password = await bcrypt.hash(user.password, 8)
+}
+
+
    
-//    if(user.isModified('password')){
-       
-//        console.log('from middleware password')
-       
-        
-       
-//    }
+
+   
+
 
    next()
     

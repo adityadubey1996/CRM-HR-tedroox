@@ -2,13 +2,13 @@ const express = require('express')
 require('./src/db/moongose')
 const path = require('path')
 const hbs = require('hbs')
-
+const bodyParser = require('body-parser')
 const app = express()
 const Userrouter = require('./src/routers/user')
 const Hrrouter = require('./src/routers/hr')
 
 const port = process.env.PORT || 3000
-
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.json())
 app.use(express.static(path.join(__dirname,'../CRM-HR/src')))
 hbs.registerPartials(path.join(__dirname,'../CRM-HR/src/partials'))

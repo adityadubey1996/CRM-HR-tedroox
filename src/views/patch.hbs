@@ -1,0 +1,186 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<style>
+        
+
+    .form{
+        background-color:darkorange;
+        width: 1366px;
+        height: 608px;
+      
+    }
+    .form1{
+         left:44px;
+         position: relative;;
+    }
+    .form2{
+        left:44px;
+        position: relative;
+    }
+
+    .form3{
+        left:44px;
+        position: relative;
+    }
+
+    .form4{
+        left:44px;
+        position: relative;
+    }
+
+    .form5{
+        left:44px;
+        position: relative;
+    }
+
+    
+    #UserId.form-control {
+        position: relative;
+        width: 583px;
+
+    }
+
+    #name.form-control{
+        position: relative;
+        width: 583px;
+
+    }
+
+    #exampleInputEmail1.form-control{
+        position: relative;
+        width: 583px;
+
+    }
+
+    #phone.form-control{
+        position: relative;
+        width: 583px;
+
+
+    }
+    #exampleInputPassword1.form-contol{
+        position: relative;
+        width: 583px;
+
+
+    }
+    #exampleInputPassword1.form-control{
+        position: relative;
+        width:583px;
+    }
+    .submit
+    {
+        position: relative;
+        width: 100px;
+        top:17px;
+        border-radius: 10px;
+        left: 44px;
+    }
+    .reset{
+        position: relative;
+        width: 100px;
+        top:17px;
+        left: 44px;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+}
+
+    .required{
+
+          color: red;
+}
+    }
+</style>
+<body>
+        <div class="form">
+            
+            <form method="POST" action="/hr">
+                <div class="form1">
+                     <label  >Name<span class="required">*</span></label>
+                    <input type="name"  name="name" required class="form-control"  aria-describedby="name" placeholder="name" >
+                  </div>
+                  <div class="form2">
+                    <label >address<span class="required">*</span></label>
+                    <input type="address"  name="address" required class="form-control"  aria-describedby="name" placeholder="name" >
+                  </div>
+                <div class="form3">
+                  <label>Email<span class="required">*</span></label>
+                  <input type="email"  name="email"  required class="form-control"  aria-describedby="emailHelp" placeholder="email" >
+                </div>
+                <div class="form4">
+                    <label>Phone<span class="required">*</span></label>
+                    <input type="phone" name="number" required class="form-control"  aria-describedby="phone" placeholder="phone" >
+                  </div>
+                <div class="form5">
+                  <label for="exampleInputPassword1">Password<span class="required">*</span></label>
+                  <input type="password"  name="password" required class="form-control"  placeholder="Password" >
+                </div>
+
+                <div class="form6">
+                  <label>team<span>*</span></label>
+                  <input type="string"  name="team" required class="form-control"  placeholder="Password" >
+                </div>
+
+                <div class="form5">
+                  <label>designation<span</span></label>
+                  <input type="string"  name="designation" required class="form-control"  placeholder="Password" >
+                </div>
+                <div class="form5">
+                  <label>job Role<span>*</span></label>
+                  <input type="string"  name="job_role" required class="form-control"  placeholder="Password" >
+                </div>
+
+                <div class="form5">
+                  <label>age<span class="required">*</span></label>
+                  <input type="number" name="age" required required class="form-control"  placeholder="Password">
+                </div>
+
+                
+
+                <div class="form5">
+                  <label>gender<span class="required">*</span></label>
+                    <input type="radio"  name="gender" value="male"  class="form-control"  checked>
+                  <input type="radio"  name="gender" value="female"  class="form-control"  > 
+                        </div>
+
+                <div class="form5">
+                  <label>Employee ID<span class="required">*</span></label>
+                  <input type="string"  name="employee_id" required class="form-control"  placeholder="Password" >
+                </div>
+
+                <div class="form5">
+                  <label>DOB<span class="required">*</span></label>
+                  <input type="date"  name="date_of_birth" required class="form-control"  placeholder="Password" >
+                </div>
+
+               
+
+
+                <button  type="submit" required class="submit" onclick="myFunction()">Submit</button>
+                <button  type="reset"   class="reset" onclick="rsetFunction()">Reset</button>
+              </form>
+            </div>
+            <script >
+               // function  myFunction()
+                {
+                    confirm("confirm it !!")
+            
+                    alert("SuccesFully Save!!!")
+                }
+                function rsetFunction(){
+                    alert("Reset")
+                }
+            const user = document.querySelector('form')
+            console.log(user)
+          </script>
+            
+
+</body>
+</html>
