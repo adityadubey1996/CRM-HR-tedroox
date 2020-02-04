@@ -28,7 +28,9 @@ router.get('/create_hr',(req,res)=>{
     res.render('patch')
 })
 
-router.get('/update/hr')
+router.get('/update/hr', auth, (req,res)=>{
+    
+})
 
 router.get('/hr',(req,res)=>{
     
@@ -36,7 +38,7 @@ router.get('/hr',(req,res)=>{
     
         console.log(User.length)
         res.send(User)
-         res.render('index',{user:User})
+         res.render('user',{user:User})
     }).catch((e)=>{
         res.status(500).send()
     })

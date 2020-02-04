@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken')
 const User = require('../model/Hr')
 
 const auth = async (req, res, next) => {
+    const tokenheader = req.query.id
+    console.log(tokenheader)
     const bearer = req.headers.authorization
     console.log(bearer)
     try {
@@ -14,7 +16,7 @@ const auth = async (req, res, next) => {
     
         const user = await User.findOne({ email:decoded.email, 'tokens.token': token })
         console.log(user)
-
+        
         if (!user) {
             throw new Error()
         }

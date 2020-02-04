@@ -1,20 +1,51 @@
 <html>
     <head>
+        <style>
 
+            span{
+                margin-left: 20px;
+            }
+            li{
+                line-height: 20px;
+            }
+        </style>
 
-
+    <script>
+        fetch('/hr').then(async (response)=>{
+                var data1 = await response.text()
+                //console.log(data1[0])
+                
+                
+                data1 = JSON.parse(data1)
+                var dto = {user: data1}
+                var length = dto.user.length
+        })
+    </script>
 
     </head>
 
     <body>
-        <p>{{user}}</p>
+        <p></p>
 
         <button id="get_all_user">get_all_users</button>
         <button id="get_all_hr">get all hr</button>
+        
         <button id="update_an_hr">update hr information</button>
         <button id="update_user_info">update user info</button>
         <div class="data">
-            <p></p>
+            <p id="number"></p>
+            <p id="data"></p>
+            <div class="search">
+
+            </div>
+            <div class="data1">
+            <ul style="list-style-type:none; display:none;">
+               <li></li>
+               
+            </ul>
+            </div>
+            
+            
         </div>
         
 
@@ -24,18 +55,303 @@
         document.querySelector('#get_all_hr').addEventListener('click', oh)
         
         
-        function ohhh(res){
+        function ohhh(){
+            document.querySelector('ul').style = "display:inline-block"
+            document.querySelector('ul').style = "list-style-type:none"
+            fetch('/users').then(async (response)=>{
+                var data1 = await response.text()
+                //console.log(data1[0])
+                
+                
+                data1 = JSON.parse(data1)
+                var dto = {user: data1}
+                var length = dto.user.length
+                
+                document.querySelector("#number").innerHTML = length
+                //console.log(data1[1])
+
+                
+                for(var i=0;i<length;i++){
+                    var phone_number = document.createElement("li")
+                    var age = document.createElement("li")
+                    var team = document.createElement("li")
+                    var designation = document.createElement("li")
+                    var employee_id = document.createElement("li")
+                    var DOB = document.createElement("li")
+                    var gender = document.createElement("li")
+                    var email_id = document.createElement("li")
+                    var job_role = document.createElement("li")
+                    var address = document.createElement("li")
+
+
+
+                     var phone_number1 = document.createElement("span")
+                    var age1 = document.createElement("span")
+                    var team1 = document.createElement("span")
+                    var designation1 = document.createElement("span")
+                    var employee_id1 = document.createElement("span")
+                    var DOB1 = document.createElement("span")
+                    var gender1 = document.createElement("span")
+                    var email_id1 = document.createElement("span")
+                    var job_role1 = document.createElement("span")
+                    var address1 = document.createElement("span")
+
+
+
+                    phone_number.className = "phone_number"
+                    age.className = "age"
+                    team.className = "team"+i
+                    designation.className = "designation"
+                    employee_id.className = "employee_id"
+                    DOB.className = "DOB"
+                    gender.className = "gender"
+                    email_id.className = "email_id"
+                    job_role.className = "job_role"
+                    address.className = "address"
+
+
+                    phone_number1.textContent = "phone number"+dto.user[i].number
+                    age1.textContent = "age "+dto.user[i].age
+                    team1.textContent = "team"+dto.user[i].team
+                    designation1.textContent = "designation"+dto.user[i].designation
+                    employee_id1.textContent = "employee_id"+dto.user[i].employee_id
+                    DOB1.textContent = "DOB"+dto.user[i].date_of_birth
+                    gender1.textContent = "gender"+dto.user[i].gender
+                    email_id1.textContent = "email_id"+dto.user[i].email_id
+                    job_role1.textContent = "job_role"+dto.user[i].job_role
+                    address1.textContent = "address"+dto.user[i].address
+
+
+                    document.querySelector("ul").appendChild(phone_number)
+                    document.querySelector("ul").appendChild(age)
+                    document.querySelector("ul").appendChild(team)
+                    document.querySelector("ul").appendChild(designation)
+                    document.querySelector("ul").appendChild(employee_id)
+                    document.querySelector("ul").appendChild(DOB)
+                    document.querySelector("ul").appendChild(gender)
+                    document.querySelector("ul").appendChild(email_id)
+                    document.querySelector("ul").appendChild(job_role)
+                    document.querySelector("ul").appendChild(address)
+
+
+
+                    document.querySelector("li").appendChild(phone_number1)
+                    document.querySelector("li").appendChild(age1)
+                    document.querySelector("li").appendChild(team1)
+                    document.querySelector("li").appendChild(designation1)
+                    document.querySelector("li").appendChild(employee_id1)
+                    document.querySelector("li").appendChild(DOB1)
+                    document.querySelector("li").appendChild(gender1)
+                    document.querySelector("li").appendChild(email_id1)
+                    document.querySelector("li").appendChild(job_role1)
+                    document.querySelector("li").appendChild(address1)
+                    
+
+                
+                //document.querySelector(".age").append(document.createElement("div").className("data2").textContent(dto.user[i].age))
+                
+               
+                    
+                }
+
+
+
             
+        })
         }
         function oh(){
-            fetch('/hr')
+            document.querySelector('ul').style = "display:inline-block"
+            document.querySelector('ul').style = "list-style-type:none"
+            fetch('/hr').then(async (response)=>{
+                var data1 = await response.text()
+                //console.log(data1[0])
+                
+                
+                data1 = JSON.parse(data1)
+                var dto = {user: data1}
+                var length = dto.user.length
+                
+                document.querySelector("#number").innerHTML = length
+                //console.log(data1[1])
+
+                
+                for(var i=0;i<length;i++){
+                    var phone_number = document.createElement("li")
+                    var age = document.createElement("li")
+                    var team = document.createElement("li")
+                    var designation = document.createElement("li")
+                    var employee_id = document.createElement("li")
+                    var DOB = document.createElement("li")
+                    var gender = document.createElement("li")
+                    var email_id = document.createElement("li")
+                    var job_role = document.createElement("li")
+                    var address = document.createElement("li")
+
+
+
+                     var phone_number1 = document.createElement("span")
+                    var age1 = document.createElement("span")
+                    var team1 = document.createElement("span")
+                    var designation1 = document.createElement("span")
+                    var employee_id1 = document.createElement("span")
+                    var DOB1 = document.createElement("span")
+                    var gender1 = document.createElement("span")
+                    var email_id1 = document.createElement("span")
+                    var job_role1 = document.createElement("span")
+                    var address1 = document.createElement("span")
+
+
+
+                    phone_number.className = "phone_number"
+                    age.className = "age"
+                    team.className = "team"+i
+                    designation.className = "designation"
+                    employee_id.className = "employee_id"
+                    DOB.className = "DOB"
+                    gender.className = "gender"
+                    email_id.className = "email_id"
+                    job_role.className = "job_role"
+                    address.className = "address"
+
+
+                    phone_number1.textContent = "phone number"+dto.user[i].number
+                    age1.textContent = "age "+dto.user[i].age
+                    team1.textContent = "team"+dto.user[i].team
+                    designation1.textContent = "designation"+dto.user[i].designation
+                    employee_id1.textContent = "employee_id"+dto.user[i].employee_id
+                    DOB1.textContent = "DOB"+dto.user[i].date_of_birth
+                    gender1.textContent = "gender"+dto.user[i].gender
+                    email_id1.textContent = "email_id"+dto.user[i].email_id
+                    job_role1.textContent = "job_role"+dto.user[i].job_role
+                    address1.textContent = "address"+dto.user[i].address
+
+
+                    document.querySelector("ul").appendChild(phone_number)
+                    document.querySelector("ul").appendChild(age)
+                    document.querySelector("ul").appendChild(team)
+                    document.querySelector("ul").appendChild(designation)
+                    document.querySelector("ul").appendChild(employee_id)
+                    document.querySelector("ul").appendChild(DOB)
+                    document.querySelector("ul").appendChild(gender)
+                    document.querySelector("ul").appendChild(email_id)
+                    document.querySelector("ul").appendChild(job_role)
+                    document.querySelector("ul").appendChild(address)
+
+
+
+                    document.querySelector("li").appendChild(phone_number1)
+                    document.querySelector("li").appendChild(age1)
+                    document.querySelector("li").appendChild(team1)
+                    document.querySelector("li").appendChild(designation1)
+                    document.querySelector("li").appendChild(employee_id1)
+                    document.querySelector("li").appendChild(DOB1)
+                    document.querySelector("li").appendChild(gender1)
+                    document.querySelector("li").appendChild(email_id1)
+                    document.querySelector("li").appendChild(job_role1)
+                    document.querySelector("li").appendChild(address1)
+                    
+
+                
+                //document.querySelector(".age").append(document.createElement("div").className("data2").textContent(dto.user[i].age))
+                
+               
+                    
+                }
+               
+                    
+                    //
+                
+                
+                
+            })
+        }
+            document.querySelector('#update_an_hr').addEventListener('click', find_hr)
+            
+            document.querySelector('#update_user_info').addEventListener('click', find_user)
+            
+            function find_hr(){
+
+                var search = document.createElement('input')
+                var button = document.createElement('button')
+                button.id = 'search'
+                button.textContent='search'
+                search.id= 'input'
+                search.placeholder = 'enter the email-id'
+                search.style = "display:inline-block"
+                document.querySelector('.search').appendChild(search)
+                document.querySelector('.search').appendChild(button)
+                const button1 =  document.querySelector('#search')
+            
+           button1.addEventListener('click', find_hr_email)
+                function find_hr_email(){
+                 var search_element=document.querySelector('#input').value
+                 fetch('/hr/find_by_email/?email='+search_element,{method:'GET'}).then(async (request,response)=>{
+                    var send_data = await request.text()
+                    console.log(send_data)
+                    var data1 = await response.text()
+                //console.log(data1[0])
+                
+                
+                    data1 = JSON.parse(data1)
+                    var dto = {user: data1}
+                    console.log(dto)
+                    var length = dto.user.length
+                    var ul = document.createElement("ul")
+                     var phone_number = document.createElement("li")
+                    var age = document.createElement("li")
+                    var team = document.createElement("li")
+                    var designation = document.createElement("li")
+                    var employee_id = document.createElement("li")
+                    var DOB = document.createElement("li")
+                    var gender = document.createElement("li")
+                    var email_id = document.createElement("li")
+                    var job_role = document.createElement("li")
+                    var address = document.createElement("li")
+
+
+
+
+                    phone_number1.textContent = "phone number"+dto.user[i].number
+                    age1.textContent = "age "+dto.user[i].age
+                    team1.textContent = "team"+dto.user[i].team
+                    designation1.textContent = "designation"+dto.user[i].designation
+                    employee_id1.textContent = "employee_id"+dto.user[i].employee_id
+                    DOB1.textContent = "DOB"+dto.user[i].date_of_birth
+                    gender1.textContent = "gender"+dto.user[i].gender
+                    email_id1.textContent = "email_id"+dto.user[i].email_id
+                    job_role1.textContent = "job_role"+dto.user[i].job_role
+                    address1.textContent = "address"+dto.user[i].address
+
+
+                    document.querySelector("ul").appendChild(phone_number1)
+                    document.querySelector("ul").appendChild(age1)
+                    document.querySelector("ul").appendChild(team1)
+                    document.querySelector("ul").appendChild(designation1)
+                    document.querySelector("ul").appendChild(employee_id1)
+                    document.querySelector("ul").appendChild(DOB1)
+                    document.querySelector("ul").appendChild(gender1)
+                    document.querySelector("ul").appendChild(email_id1)
+                    document.querySelector("ul").appendChild(job_role1)
+                    document.querySelector("ul").appendChild(address1)
+                    
+                 }).catch((error)=>{
+                     console.log(error)
+                 })
+            }
+                
+
+            }
+            function find_user(){
+
+            }
+
+         
+            
+
             
         
 
-            
-        }
-
     </script>
-
+    
     </body>
 </html>
